@@ -94,7 +94,6 @@ public class ResourceCentreTest {
 		//boundary
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
 		ResourceCentre.addCamcorder(camcorderList, cc1);
-		ResourceCentre.addCamcorder(camcorderList, cc2);
 		// error
 		boolean isLoaned = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "23-07-2020");
 		cc1.setIsAvailable(false);
@@ -103,6 +102,7 @@ public class ResourceCentreTest {
 		isLoaned = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", "23-07-2020");
 		assertFalse("Check that non-existing Camcorder cannot be loaned", isLoaned);
 	   // normal
+		ResourceCentre.addCamcorder(camcorderList, cc2);
 	    isLoaned = ResourceCentre.doLoanCamcorder(camcorderList, "CC0012","23-07-2020");
 		assertTrue("Check that available book can be loan", isLoaned);
 	   	
