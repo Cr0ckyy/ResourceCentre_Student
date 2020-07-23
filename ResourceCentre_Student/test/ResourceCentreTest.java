@@ -52,6 +52,21 @@ public class ResourceCentreTest {
 	public void addChromebookTest() {
 		// fail("Not yet implemented");
 		// write your code here
+		//Normal
+//		assertNotNull("Check if the chromebook has been add in ", chromebookList);
+//		ResourceCentre.addChromebook(chromebookList, cb1);
+//		cb2.setIsAvailable(true);
+//		//Boundary
+//		
+//		Boolean isadded=ResourceCentre.addChromebook(chromebookList, cb1);
+//		ResourceCentre.addChromebook(chromebookList, cb1);
+//		assertNotNull("Check if the chromebook has been add in with correct asset tag ", isadded);
+//		//Error
+//		assertNotNull(" the chromebook has failed to add in ", chromebookList);
+//		if(ResourceCentre.addChromebook(chromebookList, cb1)) {
+//			
+//		}
+		
 	}
 
 	@Test
@@ -103,6 +118,7 @@ public class ResourceCentreTest {
 	public void doReturnCamcorderTest() {
 		// fail("Not yet implemented");
 		// write your code here
+		// Team 1 Qikai
 		// boundary
 		assertNotNull("Check if there is valid camcorder arraylist to add to", camcorderList);
 		ResourceCentre.addCamcorder(camcorderList, cc1);
@@ -126,6 +142,7 @@ public class ResourceCentreTest {
 	public void doReturnChromebookTest() {
 		// fail("Not yet implemented");
 		// write your code here
+		// Team 1 Qikai
 		// boundary
 		assertNotNull("Check if there is valid chromebook arraylist to add to", chromebookList);
 		ResourceCentre.addChromebook(chromebookList, cb1);
