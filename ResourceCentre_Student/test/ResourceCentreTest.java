@@ -140,7 +140,6 @@ public class ResourceCentreTest {
 		isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0012");
 		assertTrue("Check that loanded out chromebook CB0012 is returned - true", isReturned);
 		// error
-		
 		isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0013");
 		assertFalse("Check that available chromebook CB0011 is returned - false?", isReturned);
 	}
