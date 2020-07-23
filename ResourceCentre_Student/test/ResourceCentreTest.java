@@ -39,6 +39,7 @@ public class ResourceCentreTest {
 		// Given an empty list, after adding 1 item, the size of the list is 1
 		ResourceCentre.addCamcorder(camcorderList, cc1);
 		assertEquals("Test if that Camcorder arraylist size is 1?", 1, camcorderList.size());
+		assertSame("Test that Chromebook is added", cb1, chromebookList.get(0));
 
 		// The item just added is as same as the first item of the list
 		assertSame("Test that Camcorder is added same as 1st item of the list?", cc1, camcorderList.get(0));
@@ -50,23 +51,18 @@ public class ResourceCentreTest {
 
 	@Test
 	public void addChromebookTest() {
-		// fail("Not yet implemented");
-		// write your code here
-		//Normal
-//		assertNotNull("Check if the chromebook has been add in ", chromebookList);
-//		ResourceCentre.addChromebook(chromebookList, cb1);
-//		cb2.setIsAvailable(true);
-//		//Boundary
-//		
-//		Boolean isadded=ResourceCentre.addChromebook(chromebookList, cb1);
-//		ResourceCentre.addChromebook(chromebookList, cb1);
-//		assertNotNull("Check if the chromebook has been add in with correct asset tag ", isadded);
-//		//Error
-//		assertNotNull(" the chromebook has failed to add in ", chromebookList);
-//		if(ResourceCentre.addChromebook(chromebookList, cb1)) {
-//			
-//		}
+
+		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		assertEquals("Test if that Chromebook arraylist size is 1", 1, chromebookList.size());
+		assertSame("Test that Chromebook is added", cb1, chromebookList.get(0));
+
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		assertEquals("Test if that Chromebook arraylist size is 2", 2, chromebookList.size());
+		assertSame("Test that Chromebook is added", cb2, chromebookList.get(1));
 		
+		// DONE BY - LI SHUFANG
 	}
 
 	@Test
@@ -97,8 +93,32 @@ public class ResourceCentreTest {
 
 	@Test
 	public void retrieveAllChromebookTest() {
-		// fail("Not yet implemented");
-		// write your code here
+		//
+		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+
+		//
+		String allChromebook = ResourceCentre.retrieveAllChromebook(chromebookList);
+		String testOutput = "";
+		assertEquals("Check that the retived Chromebooklist is empty", testOutput, allChromebook);
+
+		//
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		assertEquals("Test that Chromebook arraylist size is 2?", 2, camcorderList.size());
+
+		//
+		//
+		allChromebook = ResourceCentre.retrieveAllChromebook(chromebookList);
+
+		testOutput = String.format("%-10s %-30s %-10s %-10s %-20d\n", "CB0011", "My Google Chromebook 1st", "Yes", "",
+				"MAC OS");
+		testOutput += String.format("%-10s %-30s %-10s %-10s %-20d\n", "CB0012", "SAMSUNG Chromebook 4+", "Yes", "",
+				"Windows 10");
+
+		assertEquals("Check that ViewAllChromebooklist", testOutput, allChromebook);
+		
+		// DONE BY - LI SHUFANG
+
 	}
 
 	@Test
@@ -142,7 +162,7 @@ public class ResourceCentreTest {
 	public void doReturnChromebookTest() {
 		// fail("Not yet implemented");
 		// write your code here
-		// Team 1 Qikai 
+		// Team 1 Qikai
 		// boundary
 		assertNotNull("Check if there is valid chromebook arraylist to add to", chromebookList);
 		ResourceCentre.addChromebook(chromebookList, cb1);
