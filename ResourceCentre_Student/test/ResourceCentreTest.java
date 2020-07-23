@@ -88,22 +88,24 @@ public class ResourceCentreTest {
 
 	@Test
 	public void doLoanCamcorderTest() {
-		// HuiWen
+		// HuiWen 19013331
 		//fail("Not yet implemented");
 		// write your code here
 		//boundary
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
+		ResourceCentre.addCamcorder(camcorderList, cc1);
 		ResourceCentre.addCamcorder(camcorderList, cc2);
-		
 		// error
-		boolean isLoaned = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "Nikon HDSLR");
-		assertTrue("Check that available Camcorder is loaned - true?", isLoaned);
-		
+		boolean isLoaned = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "23-07-2020");
+		cc1.setIsAvailable(false);
+		assertFalse("Check that unavailable Camcorder cannot be loaned", isLoaned);
+		//error
+		isLoaned = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", "23-07-2020");
+		assertFalse("Check that non-existing Camcorder cannot be loaned", isLoaned);
 	   // normal
-		cc2.setIsAvailable(true);
-	    isLoaned = ResourceCentre.doLoanCamcorder(camcorderList, "CC0012","Sony DSC-RX100M7");
-		assertTrue("Check that available book can be loan - true?", isLoaned);
-			
+	    isLoaned = ResourceCentre.doLoanCamcorder(camcorderList, "CC0012","23-07-2020");
+		assertTrue("Check that available book can be loan", isLoaned);
+	   	
 	}
 	
 	
